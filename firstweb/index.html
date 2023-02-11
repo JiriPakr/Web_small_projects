@@ -10,6 +10,7 @@
     </head>
     <body style="background-color: darkred;">
         <script src="app.js"></script>
+        <noscript>Sorry no support</noscript>
         <h1 style="font-size: 60px;" id="h1">Heading 1</h1>
         <h2 style="border: 2px solid teal;">Heading 2</h2>
         <h3>Heading 3</h3>
@@ -90,7 +91,11 @@
 
         <a href="#h1">Jump to header 1</a> 
         <hr>
-
+        <p id="demo">
+            <button type="button" onclick="document.getElementById('demo').innerHTML = Date()">
+            Click me to display Date and Time.</button>
+        </p>
+        <hr>
 
     </body>
 </html>
