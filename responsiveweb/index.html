@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <link rel="icon" type="image/x-icon" href="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page</title>
+    <style>
+    * {
+        box-sizing: border-box;
+    }
+
+    .left {
+        background-color: red;
+        padding: 20px;
+        float: left;
+        width: 20%;
+    }
+
+    .main {
+        background-color: #f1f1f1;
+        padding: 20px;
+        float: left;
+        width: 60%;
+    }
+
+    .right {
+        background-color: green;
+        padding: 20px;
+        float: left;
+        width: 20%;
+    }
+
+    .spongebob {
+        float: left;
+        width: 50%;
+    }
+
+    @media screen and (max-width: 800px) {
+        .left, .main, .right, .spongebob {
+            width: 100%;
+        }
+    }
+    </style>
+</head>
+<body>
+    <h1 style="font-size:5vw;">Responsive Text</h1>
+
+    <p style="font-size:3vw;">Resize the browser window to see how the text size scales.</p>
+    
+    <p style="font-size:3vw;">Use the "vw" unit when sizing the text. 10vw will set the size to 10% of the viewport width.</p>
+    
+    <p>Viewport is the browser window size. 1vw = 1% of viewport width. If the viewport is 50cm wide, 1vw is 0.5cm.</p>
+
+    <div class="left">
+        <p>Menu 1</p>
+    </div>
+
+    <div class="main">
+        <p>Main menu</p>
+    </div>
+
+    <div class="right">
+        <p>Menu 2</p>
+    </div>
+    <img src="https://www.serialzone.cz/obrazky/kvizy/105.jpg" class="spongebob">
+</body>
+</html>
