@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<head lang="en">
+    <meta charset="utf-8">
+    <link rel="icon" type="image/x-icon" href="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+    <style>
+        /* img { 
+            position: fixed;
+            top: 65px;
+            right: 400px;
+        } */
+        aside {
+            width: 30%;
+            padding-left: 15px;
+            margin-left: 15px;
+            float: right;
+            font-style: italic;
+            background-color: lightgray;
+        }
+        main {
+            margin: 0;
+            padding: 5px;
+            background-color: ghostwhite;
+        }
+    </style>
+</head>
+<body>
+<!-- 
+    list of semantic elems: 
+    <article>
+    <aside>
+    <details>
+    <figcaption>
+    <figure>
+    <footer>
+    <header>
+    <main>
+    <mark>
+    <nav>
+    <section>
+    <summary>
+    <time>
+-->
+<header>
+    <!-- Actual header -->
+    <h1>List of semantic elements:</h1>
+    <p>Posted by Jiri P.</p>
+</header>
+    <ul></ul>
+        <li>&lt;article&gt;&lt;/article&gt;</li>                
+        <li>&lt;aside&gt;&lt;/aside&gt;</li>
+        <li>&lt;details&gt;&lt;/details&gt;</li>
+        <li>&lt;summary&gt;&lt;/summary&gt;</li>
+        <li>&lt;figure&gt;&lt;/figure&gt;</li>
+        <li>&lt;figcaption&gt;&lt;/figcaption&gt;</li>
+        <li>&lt;footer&gt;&lt;/footer&gt;</li>
+        <li>&lt;header&gt;&lt;/header&gt;</li>
+        <li>&lt;main&gt;&lt;/main&gt;</li>
+        <li>&lt;mark&gt;&lt;/mark&gt;</li>
+        <li>&lt;nav&gt;&lt;/nav&gt;</li>
+        <li>&lt;section&gt;&lt;/section&gt;</li>
+        <li>&lt;time&gt;&lt;/time&gt;</li>
+    </ul>
+
+<h1>Use of semantic elements:</h1>
+<article>
+Article:
+A semantic element clearly describes its meaning to both the browser and the developer.
+Examples of non-semantic elements: &lt;div&gt; and &lt;span&gt; - Tells nothing about its content.
+Examples of semantic elements: &lt;form&gt;, &lt;table&gt;, and &lt;article&gt; - Clearly defines its content.
+</article>
+
+<aside>
+    <p>The &lt;aside&gt element defines some content aside from the content it is placed in (like a sidebar).
+The &lt;aside&gt content should be indirectly related to the surrounding content</p>
+</aside>
+<p>text, text, text, text, text, text, text, text, text, text, text, text,
+    text, text, text, text, text, text, text, text, text, text, text,
+     text, text, text, text, text, text, text, text, text, text, text,
+      text, text, text, text, text, text, text, text, text, text, text,
+       text, text, text, text, text, text, text, text, text, </p>
+
+<details>
+    <summary>Details</summary>
+    <p>Specify details that the user can open and close on demand</p>
+    <p>The &lt;summary&gt; tag defines a visible heading for the &lt;details&gt; element. The heading can be clicked to view/hide the details.
+    Note: The &lt;summary&gt; element should be the first child element of the &lt;details&gt; element.</p>
+</details>
+
+<figure>
+    <p>Use a &lt;figure&gt; element to mark up a photo in a document, and a &lt;figcaption&gt; element to define a caption for the photo.</p>
+    <p>The &lt;figcaption&gt; tag defines a caption for a &lt;figure&gt; element.
+    The &lt;figcaption&gt; element can be placed as the first or last child of the &lt;figure&gt; element.</p>
+    <img src="https://www.w3schools.com/html/img_sem_elements.gif" alt="Image of semantic elements">
+    <figcaption><i>Image of some semantic elements</i></figcaption>
+</figure>
+<footer>
+    <p>The &lt;footer&gt; element defines a footer for a document or section.
+    A &lt;footer&gt; element typically contains: 
+        <ul><li>authorship information</li>
+        <li>copyright information</li>
+        <li>contact information</li>
+        <li>sitemap</li>
+        <li>elated documents</li>
+        <li>back to top links</li></ul>
+        You can have several &lt;footer&gt; elements in one document.</p>
+</footer>
+
+<header>
+    <p>The &lt;header&gt; element represents a container for introductory content or a set of navigational links.
+    A &lt;header&gt; element typically contains:
+        <ul><li>one or more heading elements (&lt;h1&gt; - &lt;h6&gt;)</li>
+        <li>logo or icon</li>
+        <li>authorship information</li></ul>
+        </p>
+</header>
+
+<main>
+    <p>The &lt;main&gt; tag specifies the main content of a document.
+    The content inside the &lt;main&gt; element should be unique to the document. It should not contain any content that is repeated across documents such as sidebars, navigation links, copyright information, site logos, and search forms.
+    Note: There must not be more than one &lt;main&gt; element in a document. The &lt;main&gt; element must NOT be a descendant of an &lt;article&gt;, &lt;aside&gt;, &lt;footer&gt;, &lt;header&gt;, or &lt;nav&gt; element.</p>
+
+    <p><mark>The &lt;mark&gt; tag defines text that should be marked or highlighted.</mark></p>
+</main>
+
+<nav>
+    <a href="">The &lt;nav&gt; element defines a set of navigation links.
+    Notice that NOT all links of a document should be inside a &lt;nav&gt; element. The &lt;nav&gt; element is intended only for major blocks of navigation links.
+    Browsers, such as screen readers for disabled users, can use this element to determine whether to omit the initial rendering of this content.</a><br>
+    <a href="https://www.w3schools.com/html/default.asp">HTML</a> |
+    <a href="https://www.w3schools.com/css/default.asp">CSS</a> |
+    <a href="https://www.w3schools.com/js/default.asp">JavaScript</a> |
+    <a href="https://www.w3schools.com/jquery/default.asp">jQuery</a>
+</nav>
+<br>
+<section>
+<h3>Section</h3>
+<p>The &lt;section&gt; tag defines a section in a document.</p>
+</section>
+
+<time datetime="2008-02-14 20:00">The &lt;time&gt; tag defines a specific time (or datetime). 
+The datetime attribute of this element is used translate the time into a machine-readable 
+format so that browsers can offer to add date reminders through the user's calendar, 
+and search engines can produce smarter search results.</time>
+<time datetime="2010-06-24 5:00">Note: The time element does not render as anything special in any of the major browsers.</time><br>
+<time datetime="2010-06-24 5:00">2010-06-24 5:00</time> 
+
+<footer>
+    <p>Actual footer -> Author: Jiri Pakr</p>
+    <p><a href="mailto:jiripakr@example.com">jiripakr@example.com</a></p>
+  </footer> 
+</body>
