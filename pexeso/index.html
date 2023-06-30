@@ -147,43 +147,51 @@
             "<img src=\"bisonek.jpg\" alt=\"Bisonek\">":25,
 
         }
-        let counter = 0;
-        let stack = [];
-        let paired = false;
+        let stack = [];     // stack = [[id: int, paired: bool]], 
+        let complete = []
         function getImage(id) {
             
             var divItem = Number(document.getElementsByClassName("mydiv2")[id].innerHTML);
+
             
-            if (Number.isInteger(divItem) && id+1 in dogs && counter < 2) {
+            if (Number.isInteger(divItem) && id+1 in dogs && stack.length < 2) {
                 img = document.getElementsByClassName("mydiv2")[id].innerHTML = dogs[divItem]
-                paired = false
-                stack.push(id)
-                counter++
+                stack.push([id,false])
             }
-            else if (Number.isInteger(divItem) && id+1 in pair && counter < 2 ) {
+            else if (Number.isInteger(divItem) && id+1 in pair && stack.length < 2 ) {
                 img_paired = document.getElementsByClassName("mydiv2")[id].innerHTML = dogs[pair[divItem]]
-                paired = true
-                stack.push(id)
-                counter++
+                stack.push([id,true])
             }
-            else if (paired == false && counter >= 2 && stack.slice(-1) == id) {
-                console.log(stack.slice(-1))
-                dog = dogs[stack[stack.length-1]+1]
-                document.getElementsByClassName("mydiv2")[id].innerHTML = getKeyByValue(dogs, dog)
+            else if (stack[stack.length-1][1] == false && stack.length >= 1 && stack[stack.length-1][0] == id) {
+                if (!(complete.includes(id)) == true) {
+                dog_id = stack[stack.length-1][0]+1
+                document.getElementsByClassName("mydiv2")[id].innerHTML = dog_id
+                }
                 stack.pop()
             }
 
-            else if (paired == true && counter >= 2 && stack.slice(-1) == id) {
-                paired_val = pair[stack[stack.length-1]+1]
-                dog_p = dogs[paired_val]
-                console.log(paired_val)
-                document.getElementsByClassName("mydiv2")[id].innerHTML = getKeyByValue(dogs, dog_p) //getKeyByValue(pair, Number(getKeyByValue(dogs, dog_p)))
+            else if (stack[stack.length-1][1] == true && stack.length >= 1 && stack[stack.length-1][0] == id) {
+                if (!(complete.includes(id)) == true) {
+                dog_id = stack[stack.length-1][0]+1
+                document.getElementsByClassName("mydiv2")[id].innerHTML = dog_id
+                }
                 stack.pop()
             }
-            if (stack.length === 0) {
-                counter = 0
-            }
-            console.log(stack)
+            if (!(stack.length === 0)) {
+                first_elem = stack[0][0]+1
+                last_elem = stack[stack.length-1][0]+1
+                // console.log(first_elem)
+                // console.log(last_elem)
+                // console.log(pair[last_elem])
+                if (first_elem == pair[last_elem] || pair[first_elem] == last_elem) {
+                    complete.push(first_elem-1), complete.push(last_elem-1)
+                    while (!(stack.length === 0)) {
+                        stack.pop()
+                    }
+                }
+            }    
+            // console.log(complete)
+            // console.log(stack.length)
             
         }
         function getKeyByValue(object, value) {
