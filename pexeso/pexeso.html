@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Bootstrap core CSS -->
+    <link href="/docs/5.0/dist/css/bootstrap.min.css" rel="stylesheet" 
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>Document</title>
+    <style>
+        .flex-container {
+            display: flex;
+            /* flex-direction: row; row | row-reverse | column | column-reverse; */
+            justify-content: center;/* flex-start | flex-end | center | space-between | space-around | space-evenly | start | end | left | right ... + safe | unsafe; */
+            /*align-items: stretch;    stretch | flex-start | flex-end | center | baseline | first baseline | last baseline | start | end | self-start | self-end + ... safe | unsafe; */
+            /* align-content: flex-end; */
+            flex-flow: row wrap;
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            
+        }
+        .flex-container > div {
+            background: tomato;
+            padding: 5px;
+            width: 200px;
+            height: 130px;
+            margin-top: 10px;
+            margin-left: 10px;
+            line-height: 150px;
+            color: white;
+            font-weight: bold;
+            font-size: 3em;
+            text-align: center;
+        }
+
+        .flex-container > div > img {
+            max-height: 100%;
+            min-width: 100%;
+            object-fit: cover;
+            vertical-align:super;
+        }
+
+        .flex-container > div > button {
+            max-height: 100%;
+            min-width: 100%;
+            object-fit: cover;
+            vertical-align:super;
+        }
+
+        .navigation {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: flex-start;
+        
+        list-style: none;
+        margin: 0; 
+        background: #222;
+        }
+
+        .navigation a {
+        text-decoration: none;
+        display: block;
+        padding: 1em;
+        color: white;
+        }
+
+        .navigation a:hover {
+        background: #1565C0;
+        }
+
+        @media all and (max-width: 800px) {
+        .navigation {
+            justify-content: space-around;
+        }
+        }
+
+        @media all and (max-width: 600px) {
+        .navigation {
+            flex-flow: column wrap;
+            padding: 0;
+        }
+        .navigation a { 
+            text-align: center; 
+            padding: 10px;
+            border-top: 1px solid rgba(255, 255, 255,0.3); 
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1); 
+        }
+        .navigation li:last-of-type a {
+            border-bottom: 1px solid rgba(255, 255, 255,0.3);
+        }
+        }    
+
+        body {
+            background-color: #222;
+        }
+
+        button {
+
+        background: transparent;
+        border: none !important;
+        width: 200px;
+        height: 130px;
+        font-size:0;
+        }
+        
+    </style>
+</head>
+<body>
+    <ul class="navigation">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="#">Pexeso</a></li>
+        <!--<li><a href="#">Products</a></li>
+        <li><a href="#">Contact</a></li> -->
+      </ul>
+      
+        <div class="flex-container">
+            <div><img src="jezevcik.jpg" alt="Jezevčík"></div>
+            <div><img src="yorksir.jpg" alt="Yorkšír"></div>
+            <div><img src="jackRussel.JPG" alt="JackRusell"></div>
+            <div><img src="shibaInu.jpg" alt="ShibaInu"></div>
+            <div><img src="husky.jpg" alt="Husky"></div>
+            <div><img src="husky.jpg" alt="Husky"></div>
+            <div><img src="jackRussel.JPG" alt="JackRusell"></div>
+            <div><img src="labrador.webp" alt="Labrador"></div>
+            <div><img src="zlatyRetriver.jpg" alt="ZlatyRetrivr"></div>
+            <div><img src="nemeckyOvcak.jpg" alt="NemeckyOvcak"></div>
+            <div><img src="shibaInu.jpg" alt="ShibaInu"></div>
+            <div><img src="svycarskyOvcak.jpg" alt="SvycarskyOvcak"></div>
+            <div><img src="australskyOvcak.jpg" alt="AustralskyOvcak"></div>
+            <div><img src="yorksir.jpg" alt="Yorkšír"></div>
+            <div><img src="svycarskyOvcak.jpg" alt="SvycarskyOvcak"></div>
+            <div><img src="borderKolie.jpg" alt="BorderKolie"></div>
+            <div><img src="borderTerier.jpg" alt="BorderTerier"></div>
+            <div><img src="borderKolie.jpg" alt="BorderKolie"></div>
+            <div><img src="civava.jpeg" alt="Civava"></div>
+            <div><img src="bernsky.jpg" alt="BernskySalasnicky"></div>
+            <div><img src="bigl.jpg" alt="Bígl"></div>
+            <div><img src="labrador.webp" alt="Labrador"></div>
+            <div><img src="jezevcik.jpg" alt="Jezevčík"></div>
+            <div><img src="civava.jpeg" alt="Civava"></div>
+            <div><img src="bisonek.jpg" alt="Bisonek"></div>
+            <div><img src="bigl.jpg" alt="Bígl"></div>
+            <div><img src="bernsky.jpg" alt="BernskySalasnicky"></div>
+            <div><img src="zlatyRetriver.jpg" alt="ZlatyRetrivr"></div>
+            <div><img src="bisonek.jpg" alt="Bisonek"></div>
+            <div><img src="australskyOvcak.jpg" alt="AustralskyOvcak"></div>
+            <div><img src="borderTerier.jpg" alt="BorderTerier"></div>
+            <div><img src="nemeckyOvcak.jpg" alt="NemeckyOvcak"></div>
+        </div>       
+        <footer class="text-center text-white fixed-bottom" style="background-color: #222;">
+            <div class="container p-4"></div>
+            
+            <div class="text-center p-3">
+              © 2023
+            </div>
+        </footer>
+
+</body>
+</html>

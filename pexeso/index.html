@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Bootstrap core CSS -->
+    <link href="/docs/5.0/dist/css/bootstrap.min.css" rel="stylesheet" 
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>Document</title>
+    <style>
+        .flex-container {
+            display: flex;
+            /* flex-direction: row; row | row-reverse | column | column-reverse; */
+            justify-content: center;/* flex-start | flex-end | center | space-between | space-around | space-evenly | start | end | left | right ... + safe | unsafe; */
+            /*align-items: stretch;    stretch | flex-start | flex-end | center | baseline | first baseline | last baseline | start | end | self-start | self-end + ... safe | unsafe; */
+            /* align-content: flex-end; */
+            flex-flow: row wrap;
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            
+        }
+        .flex-container > div {
+            background: tomato;
+            padding: 5px;
+            width: 200px;
+            height: 130px;
+            margin-top: 10px;
+            margin-left: 10px;
+            line-height: 150px;
+            color: white;
+            font-weight: bold;
+            font-size: 3em;
+            text-align: center;
+        }
+
+        .flex-container > div > img {
+            max-height: 100%;
+            min-width: 100%;
+            object-fit: cover;
+            vertical-align:super;
+        }
+            
+        .navigation {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: flex-start;
+        
+        list-style: none;
+        margin: 0; 
+        background: #222;
+        }
+
+        .navigation a {
+        text-decoration: none;
+        display: block;
+        padding: 1em;
+        color: white;
+        }
+
+        .navigation a:hover {
+        background: #1565C0;
+        }
+
+        @media all and (max-width: 800px) {
+        .navigation {
+            justify-content: space-around;
+        }
+        }
+
+        @media all and (max-width: 600px) {
+        .navigation {
+            flex-flow: column wrap;
+            padding: 0;
+        }
+        .navigation a { 
+            text-align: center; 
+            padding: 10px;
+            border-top: 1px solid rgba(255, 255, 255,0.3); 
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1); 
+        }
+        .navigation li:last-of-type a {
+            border-bottom: 1px solid rgba(255, 255, 255,0.3);
+        }
+        }    
+
+        body {
+            background-color: #222;
+        }
+    </style>
+    <script>
+        let dogs = {
+            1: "<img src=\"jezevcik.jpg\" alt=\"Jezevcik\">",
+            2: "<img src=\"yorksir.jpg\" alt=\"Yorkšír\">",
+            3: "<img src=\"jackRussel.JPG\" alt=\"JackRusell\">",
+            4: "<img src=\"shibaInu.jpg\" alt=\"ShibaInu\">",
+            5: "<img src=\"husky.jpg\" alt=\"Husky\">",
+            8: "<img src=\"labrador.webp\" alt=\"Labrador\">",
+            9: "<img src=\"zlatyRetriver.jpg\" alt=\"ZlatyRetriver\">",
+            10: "<img src=\"nemeckyOvcak.jpg\" alt=\"NemeckyOvcak\">",
+            12: "<img src=\"svycarskyOvcak.jpg\" alt=\"SvycarskyOvcak\">",
+            13: "<img src=\"australskyOvcak.jpg\" alt=\"AustralskyOvcak\">",
+            16: "<img src=\"borderKolie.jpg\" alt=\"BorderKolie\">",
+            17: "<img src=\"borderTerier.jpg\" alt=\"BorderTerier\">",
+            19: "<img src=\"civava.jpeg\" alt=\"Civava\">",
+            20: "<img src=\"bernsky.jpg\" alt=\"BernskySalasnick\">",
+            21: "<img src=\"bigl.jpg\" alt=\"Bígl\">",
+            25: "<img src=\"bisonek.jpg\" alt=\"Bisonek\">",
+        }
+        let pair = {
+            23: 1,
+            14 : 2,
+            7: 3,
+            11: 4,
+            6: 5,
+            22: 8,
+            28: 9,
+            32: 10,
+            15: 12,
+            30: 13,
+            18: 16,
+            31: 17,
+            24: 19,
+            27: 20,
+            26: 21,
+            29: 25,
+
+        }
+
+        let vals = {
+            "<img src=\"jezevcik.jpg\" alt=\"Jezevcik\">": 1,
+            "<img src=\"yorksir.jpg\" alt=\"Yorkšír\">": 2,
+            "<img src=\"jackRussel.JPG\" alt=\"JackRusell\">": 3,
+            "<img src=\"shibaInu.jpg\" alt=\"ShibaInu\">": 4,
+            "<img src=\"husky.jpg\" alt=\"Husky\">": 5,
+            "<img src=\"labrador.webp\" alt=\"Labrador\">":8,
+            "<img src=\"zlatyRetriver.jpg\" alt=\"ZlatyRetriver\">":9,
+            "<img src=\"nemeckyOvcak.jpg\" alt=\"NemeckyOvcak\">":10,
+            "<img src=\"svycarskyOvcak.jpg\" alt=\"SvycarskyOvcak\">":12,
+            "<img src=\"australskyOvcak.jpg\" alt=\"AustralskyOvcak\">":13,
+            "<img src=\"borderKolie.jpg\" alt=\"BorderKolie\">":16,
+            "<img src=\"borderTerier.jpg\" alt=\"BorderTerier\">":17,
+            "<img src=\"civava.jpeg\" alt=\"Civava\">":19,
+            "<img src=\"bernsky.jpg\" alt=\"BernskySalasnick\">":20,
+            "<img src=\"bigl.jpg\" alt=\"Bígl\">":21,
+            "<img src=\"bisonek.jpg\" alt=\"Bisonek\">":25,
+
+        }
+        let counter = 0;
+        let stack = [];
+        let paired = false;
+        function getImage(id) {
+            
+            var divItem = Number(document.getElementsByClassName("mydiv2")[id].innerHTML);
+            
+            if (Number.isInteger(divItem) && id+1 in dogs && counter < 2) {
+                img = document.getElementsByClassName("mydiv2")[id].innerHTML = dogs[divItem]
+                paired = false
+                stack.push(id)
+                counter++
+            }
+            else if (Number.isInteger(divItem) && id+1 in pair && counter < 2 ) {
+                img_paired = document.getElementsByClassName("mydiv2")[id].innerHTML = dogs[pair[divItem]]
+                paired = true
+                stack.push(id)
+                counter++
+            }
+            else if (paired == false && counter >= 2 && stack.slice(-1) == id) {
+                console.log(stack.slice(-1))
+                dog = dogs[stack[stack.length-1]+1]
+                document.getElementsByClassName("mydiv2")[id].innerHTML = getKeyByValue(dogs, dog)
+                stack.pop()
+            }
+
+            else if (paired == true && counter >= 2 && stack.slice(-1) == id) {
+                paired_val = pair[stack[stack.length-1]+1]
+                dog_p = dogs[paired_val]
+                console.log(paired_val)
+                document.getElementsByClassName("mydiv2")[id].innerHTML = getKeyByValue(dogs, dog_p) //getKeyByValue(pair, Number(getKeyByValue(dogs, dog_p)))
+                stack.pop()
+            }
+            if (stack.length === 0) {
+                counter = 0
+            }
+            console.log(stack)
+            
+        }
+        function getKeyByValue(object, value) {
+                return Object.keys(object).find(key => object[key] === value);
+            } 
+    </script>
+
+</head>
+<body>
+    <ul class="navigation">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="pexeso.html">Pexeso</a></li>
+        <!--<li><a href="#">Products</a></li>
+        <li><a href="#">Contact</a></li> -->
+      </ul>
+      
+        <div class="flex-container">
+            <div class="mydiv2" onclick="getImage(0)">1</div>
+            <div class="mydiv2" onclick="getImage(1)">2</div>
+            <div class="mydiv2" onclick="getImage(2)">3</div>
+            <div class="mydiv2" onclick="getImage(3)">4</div>
+            <div class="mydiv2" onclick="getImage(4)">5</div>
+            <div class="mydiv2" onclick="getImage(5)">6</div>
+            <div class="mydiv2" onclick="getImage(6)">7</div>
+            <div class="mydiv2" onclick="getImage(7)">8</div>
+            <div class="mydiv2" onclick="getImage(8)">9</div>
+            <div class="mydiv2" onclick="getImage(9)">10</div>
+            <div class="mydiv2" onclick="getImage(10)">11</div>
+            <div class="mydiv2" onclick="getImage(11)">12</div>
+            <div class="mydiv2" onclick="getImage(12)">13</div>
+            <div class="mydiv2" onclick="getImage(13)">14</div>
+            <div class="mydiv2" onclick="getImage(14)">15</div>
+            <div class="mydiv2" onclick="getImage(15)">16</div>
+            <div class="mydiv2" onclick="getImage(16)">17</div>
+            <div class="mydiv2" onclick="getImage(17)">18</div>
+            <div class="mydiv2" onclick="getImage(18)">19</div>
+            <div class="mydiv2" onclick="getImage(19)">20</div>
+            <div class="mydiv2" onclick="getImage(20)">21</div>
+            <div class="mydiv2" onclick="getImage(21)">22</div>
+            <div class="mydiv2" onclick="getImage(22)">23</div>
+            <div class="mydiv2" onclick="getImage(23)">24</div>
+            <div class="mydiv2" onclick="getImage(24)">25</div>
+            <div class="mydiv2" onclick="getImage(25)">26</div>
+            <div class="mydiv2" onclick="getImage(26)">27</div>
+            <div class="mydiv2" onclick="getImage(27)">28</div>
+            <div class="mydiv2" onclick="getImage(28)">29</div>
+            <div class="mydiv2" onclick="getImage(29)">30</div>
+            <div class="mydiv2" onclick="getImage(30)">31</div>
+            <div class="mydiv2" onclick="getImage(31)">32</div>
+            
+        </div>
+        <br>       
+        <footer class="text-center text-white fixed-bottom" style="background-color: #222;">
+            <div class="container p-4"></div>
+            
+            <div class="text-center p-3">
+              © 2023
+            </div>
+        </footer>
+
+</body>
+</html>
